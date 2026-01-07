@@ -1,0 +1,19 @@
+function selectMethod(nexon, shank, timeCourse)
+    fcnHandle = uigetfile();
+    fcnHandle = split(fcnHandle,"."); % remove extension
+    fcnHandle = fcnHandle{1};    
+    timeCourse.UserData.dfAnalysisFcn = str2func(fcnHandle);
+    methodCfg = extractMethodCfg(fcnHandle);
+
+    timeCourse.UserData.methodCfg.fh
+    timeCourse.UserData.methodCfg.ph
+    timeCourse.UserData.methodCfg.entryParams
+    methodCfgValueChangedFcn = str2func("methodCfgEntryChanged");
+
+
+    timeCourse.UserData.method.Panel.fh = uifigure("Position",[100,560,500,800],"Color",[0,0,0]);   
+    timeCourse.UserData.ph = uipanel(obj.Panel.fh,"Position",[5,5,490,790],"BackgroundColor",[0,0,0]);    
+    obj.entryParams = breakoutEditFields(nexon, obj, methodCfg, methodCfgValueChangedFcn);
+
+    
+end

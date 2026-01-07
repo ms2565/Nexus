@@ -1,0 +1,16 @@
+function photonCtrl_initializeMicroscope(nexObj)
+    prxObj_photon = nexObj.proxon.index_type2.photon_1;
+    ncortex = nexObj.nCORTEx;
+
+    % Play sound
+    soundPath = fullfile(ncortex.nCORTEx_repo,"utils/assets/")
+    [y, fs] = audioread('yourSound.wav');
+    player = audioplayer(y, fs);
+    play(player);
+
+    % Do something while audio plays
+    photonCtrl_locatePhysicalHome(prxObj_photon);
+
+    % Stop audio when done
+    stop(player);
+end

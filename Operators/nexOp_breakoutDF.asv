@@ -1,0 +1,32 @@
+function [dfSet, axSet] = nexStat_breakoutDF(DF, SS_ax)
+    axSel = strrep(convertCharsToStrings(fieldnames(SS_ax)),"ax_","");    
+    axVals = structfun(@(f) {f}, SS_ax, "UniformOutput", true);
+    DF = nex_initAxisPointer_v2(DF);
+    [df_slice, ax_slice] = nexOp_sliceDF(DF, axSels, axVals); % turn into cell fun    
+    % coords = cell(1, ndims(DF.df));
+    coords = cell(1, numel(fieldnames(SS_ax)));
+    % [coords{:}] = ind2sub(size(df_slice),1:numel(df_slice));
+    [coords{:}] = ind2sub(size(df_slice),1:numel(df_slice));
+    % df_samples = df_slice(:);
+    axFields = convertCharsToStrings(fieldnames(DF.ptr))';
+    coordCol = [];
+    coordIDs = [];
+    for axID = axFields
+        % disp(f)
+        axDim = DF.ptr.(axID).dim;
+        % replace coords column with actual ax coords
+        axCol = coords{1,axDim};
+        ax_slice_i = ax_slice.(axID);
+        axCol(:) = ax_slice_i(axCol(:));   
+        coordCol = [coordCol, axCol'];
+        coordIDs = [coordIDs, axID];
+    end
+    % dfSet = table(df_samples,'VariableNames','df');
+    % extract samples from sliced df (according to axis selections SS_ax)   
+    axSet = array2table(coordCol, 'VariableNames', convertStringsToChars(coordIDs));% return coordinates for each slice set
+    DF_slice.df = df_slice;
+    DF_slice.ax = ax_slice;
+    dfSet = rowfun(@(r) nexOp_sliceDF(DF_slice, rVars, r{:,:}), axSet);
+
+    dfSet = array2table(df_samples,"VariableNames","df");
+end

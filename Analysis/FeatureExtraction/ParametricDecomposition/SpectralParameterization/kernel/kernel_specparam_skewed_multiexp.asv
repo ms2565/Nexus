@@ -1,0 +1,47 @@
+function fit = kernel_specparam_skewed_multiexp(f, args)
+
+    % CFG HEADER
+    OFF  = args.OFF;   % default = 10
+    EXP0 = args.EXP0;  % default = 2
+    KNE0 = args.KNE0;  % default = 5    
+    EXP1 = args.EXP1;  % default = 12
+    KNE1 = args.KNE1;  % default = 18
+    EXP2 = args.EXP2;  % default = 25
+    KNE2 = args.KNE2;  % default = 31    
+    CF1  = args.CF1;   % default = 37
+    PW1  = args.PW1;   % default = 45
+    BW1  = args.BW1;   % default = 52    
+    CF2  = args.CF2;   % default = 59
+    PW2  = args.PW2;   % default = 64
+    BW2  = args.BW2;   % default = 70    
+    CF3  = args.CF3;   % default = 78
+    PW3  = args.PW3;   % default = 86
+    BW3  = args.BW3;   % default = 92    
+    CF4  = args.CF4;   % default = 99
+    PW4  = args.PW4;   % default = 106
+    BW4  = args.BW4;   % default = 113    
+    CF5  = args.CF5;   % default = 121
+    PW5  = args.PW5;   % default = 128
+    BW5  = args.BW5;   % default = 135    
+    CF6  = args.CF6;   % default = 142
+    PW6  = args.PW6;   % default = 150
+    BW6  = args.BW6;   % default = 158    
+    CF7  = args.CF7;   % default = 165
+    PW7  = args.PW7;   % default = 172
+    BW7  = args.BW7;   % default = 180    
+    CF8  = args.CF8;   % default = 188
+    PW8  = args.PW8;   % default = 195
+    BW8  = args.BW8;   % default = 202    
+    CF9  = args.CF9;   % default = 210
+    PW9  = args.PW9;   % default = 218
+    BW9  = args.BW9;   % default = 225    
+    CF10 = args.CF10;  % default = 233
+    PW10 = args.PW10;  % default = 240
+    BW10 = args.BW10;  % default = 248
+
+    % model form
+    
+    % APERIODIC
+    fit_AP = -log10(KNE0 + f .^ EXP0) - log10(KNE)
+    % PERIODIC
+end

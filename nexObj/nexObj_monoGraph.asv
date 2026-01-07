@@ -1,0 +1,57 @@
+classdef nexObj_monoGraph < handle
+    properties
+        classID = "mgph"
+        DF
+        DF_postOp
+        nexon
+        polyGraph
+        Parent
+        Origin
+        Figure
+        cfg=struct
+    end
+
+    methods
+        function nexObj = nexObj_monoGraph(Parent, nexon, opCfgFcn)
+            % resolve time-resolved recordings over varied dimensions
+            % (channel, frequency, etc.)
+            if isempty(Parent) % standalone monograph, attach to nexon
+                nexObj.nexon = nexon;
+                df = grabDataFrame(nexon, "lfp",[]);
+                df_t = grabDataFrame(nexon,"t_lfp",[]);
+                nexObj.DF = lfp2DF(df, df_t);                
+            else
+                nexObj.Parent = Parent;
+                nexObj.Origin = Parent.Origi
+                nexObj.nexon = Parent.nexon;
+                nexObj.Parent.Children.(nexObj.classID) = nexObj;
+                nexObj.DF = Parent.DF_postOp;
+            end
+            % CONFIG
+            if ~isempty(opCfgFcn)
+                nexObj.cfg.opCfg=nex_generateCfgObj(opCfgFcn);                
+                nexObj.operate();
+            else
+                nexObj.cfg.opCfg=[];
+                nexObj.DF_postOp = nexObj.DF;
+            end
+            % Axis pointer
+            nexObj.DF_postOp = nex_initAxisPointer_v2(nexObj.DF_postOp);
+            nexObj.cfg.visCfg = nex_generateCfgObj(str2func("nexVisualization_monoGraph"));                        
+            % Inherit DF
+            nexObj.buildFigure();
+        end
+
+        function buildFigure(nexObj)
+            nexFigure_monoGraph(nexObj);
+        end
+
+        function updateScope(nexObj)
+        end
+
+        function operate(nexObj)
+            nexObj.DF_postOp = nexObj.cfg.opCfg.fcn(nexObj.DF);
+        end
+    end
+   
+end

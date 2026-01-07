@@ -1,0 +1,7 @@
+function dtsIO_readAVG(nexObj, ptr_dts)
+    if isstruct(ptr_dts) % find matching struct
+        idx_matxh = arrayfun(@(r))
+    elseif isnumeric(ptr_dts) % index T_avg at index
+    else
+    end
+end

@@ -1,0 +1,9 @@
+function nexDraw_clearViolin(nexObj)
+    V = nexObj.Figure.panel0.graphics.canvas;
+    axList = V.axList;
+    
+    for i = 2:length(axList)
+        ax_i = axList(i);
+        delete(ax_i);        
+    end
+end

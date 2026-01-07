@@ -1,0 +1,21 @@
+function DF = nex_initAxisPointer_v2(DF)
+    % loop through ax fields and initiate ptr for each
+    axFields = fieldnames(DF.ax);
+    df = DF.df;
+    dimsTaken = [];
+    for i = 1:length(axFields)
+        axField = axFields{i};
+        ax = DF.ax.(axField);
+        axLen = length(ax);
+        dim = find(axLen==size(df));
+        for dim
+        if ~ismember(dim,dimsTaken)
+            DF.ptr.(axField).dim = dim(1);
+        else
+        end
+        DF.ptr.(axField).value=1;
+        
+    end
+    % upgrade to nexPtr
+    DF.ptr = nexObj_ptr(DF.ptr);
+end

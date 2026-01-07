@@ -1,0 +1,16 @@
+function sampleFile =  MLIO_writeSample(FI, DF_smp, fileType)
+    files = dir(fld_DS);
+    nSamples = sum(~[files.isdir]);   % counts only files    
+    switch fileType
+        case "csv"
+
+        case "hdf5"         
+            % QUERY DATABASE FOR PRE-EXISTING SAMPLE
+
+            sampleFile = sprintf("%0*d.hdf5",10,nSamples+1);
+            sampleFile_full = fullfile(fld_DS,sampleFile);
+            MLIO_writeDF2HDF5(DF_smp, sampleFile_full)
+            % info = h5info(fileTag);
+            % readGroup(info,fileTag)
+    end
+end

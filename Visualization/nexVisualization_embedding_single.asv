@@ -1,0 +1,6 @@
+function nexVisualization_embedding_single(nexObj, args)
+    
+    % CFG HEADER
+    args.t
+    
+end

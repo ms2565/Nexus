@@ -1,0 +1,11 @@
+function idx = nexOp_buildSliceIndex(ax, ptr, axSels, axVals)
+    ptrFields = fieldnames(ptr);
+    idx = repmat({':'},1,ndims(ptrFields));
+    for i = 1:length(axSels)
+        axSel = axSels(i);
+        sliceRange = axVals{i};
+        sliceAx = ax.(axSel);
+        sliceCond = ismember(sliceAx, sliceRange);
+        idx{ptrDim}
+    end
+end
