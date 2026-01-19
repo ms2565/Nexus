@@ -21,7 +21,7 @@ Follow low-dimensional embedding trajectories of your datastreams (CEBRA-time em
 Dynamically categorize and summarize your findings.
 ![violin_nexusREADME](https://github.com/user-attachments/assets/2bf7302d-68c6-47c3-a1d9-9a7857060945)
 
-This project is under active development to improve user experience and broaden its capacity to directly quantify results to facilitate reporting and publication efforts. I am developing this tool throughout my PhD as I encounter new challenges toward identifying, isolating, and disseminating interesting findings. Please stay tuned for future upgrades!
+This project is under active development to improve user experience and broaden its capacity to directly quantify results to facilitate reporting and publication efforts. I am developing this tool throughout my PhD as I adapt to new challenges toward identifying, isolating, and disseminating interesting findings. Please stay tuned for future upgrades!
 
 # INSTALLATION
 Download and extract this repository to a preferred file directory location on your primary workstation..
