@@ -2,6 +2,7 @@ Nexus is a graphical user interface for exploring multi-modal neural datasets. D
 
 
 With a few keystrokes, traverse the results of your custom signal processing methods over hundreds of dimensions (channels, frequencies, time-points, etc.) and let Nexus handle the rest (leave behind the exhaustive for-loops and endless scrolling through single-purpose visualization scripts to update plotting configurations!)
+
 ![npxlsTC_nexusREADME](https://github.com/user-attachments/assets/df7d1c0c-a867-4826-9efb-85f02f71ba9f)
 
 Visit recordings from any subject, day, or trial within moments.
