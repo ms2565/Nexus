@@ -1,7 +1,7 @@
 Nexus is a graphical user interface for exploring multi-modal neural datasets. Dynamically screen large datasets containing tens to hundreds of repeated experimental recordings to quickly survey your results and inform your analysis. Visualizing, processing, and interpreting large-scale, multi-modal neurophysiological and behavioral data poses new challenges as modern recording devices now span hundreds of recording sites. Typical workflows often demand users to predefine spatio-temporal cross sections of their high-throughput recordings before visualizing, storing, and inspecting results—often in a stepwise fashion; this greatly limits one's ability to thoroughly visualize and compare results across hundreds of channels, trials, and subjects. Nexus was built to leverage the flexibility of matlab UI primitives and object-oriented data structures to automatically and reproducibly update existing graphics objects in response to user input. 
 
 
-With a few keystrokes, traverse the results of your custom signal processing methods over hundreds of dimensions (channels, frequencies, time-points, etc.) and let Nexus handle the rest (leave behind the exhaustive for-loops and endless scrolling through single-purpose visualization scripts to update plotting configurations!)
+With a few keystrokes, traverse the results of your custom signal processing methods over hundreds of dimensions (channels, frequencies, time-points, etc.) and let Nexus handle the rest (leave behind the exhaustive for-loops and scrolling through single-purpose visualization scripts to update plotting configurations!)
 
 ![npxlsTC_nexusREADME](https://github.com/user-attachments/assets/df7d1c0c-a867-4826-9efb-85f02f71ba9f)
 
